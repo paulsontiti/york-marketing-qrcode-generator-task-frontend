@@ -2,7 +2,9 @@
 import Movies from '@/components/movies'
 import React from 'react'
 
- async function page({ params }:{params:{random:string}}) {
+ async function page({params}:
+  {params: Promise<{ random: string }>
+ }) {
 
       // asynchronous access of `params.id`.
   const { random } = await params
