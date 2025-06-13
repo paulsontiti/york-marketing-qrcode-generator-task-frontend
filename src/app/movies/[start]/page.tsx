@@ -2,13 +2,12 @@
 import Movies from '@/components/movies'
 import React from 'react'
 
-async function page({params:{start}}:{
-    params:{start:string}
-}) {
+ function page({ params }:{params:{random:string}}) {
 
-     
+      // asynchronous access of `params.id`.
+  const { random } = params
   return (
-   <Movies start={start}/>
+   <Movies random={random}/>
   )
 }
 
