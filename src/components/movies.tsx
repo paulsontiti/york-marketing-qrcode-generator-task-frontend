@@ -7,7 +7,7 @@ function Movies({start}:{start:string}) {
   useEffect(() => {
     (async () => {
       const movies = await axios.get(`http://localhost:3001/movies/${start}`);
-      console.log(movies);
+      // console.log(movies);
     })();
   }, []);
   return <div>movies</div>;
