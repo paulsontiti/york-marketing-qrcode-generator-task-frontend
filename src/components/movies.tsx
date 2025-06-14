@@ -10,7 +10,7 @@ function Movies({random}:{random:string}) {
       console.log(movies);
     })();
   }, []);
-  return <div>movies</div>;
+  return <div>movies loading</div>;
 }
 
 export default Movies;
