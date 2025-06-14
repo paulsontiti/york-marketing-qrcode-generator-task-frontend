@@ -36,7 +36,7 @@ export default function QRCodeComponent() {
 
   useEffect(() => {
     (async () => {
-      const src = await generateQR(`https://york-marketing-qrcode-generator-ntg9s4ni3-paulsontitis-projects.vercel.app/${randomNumbers}`);
+      const src = await generateQR(`https://york-marketing-qrcode-generator.vercel.app/${randomNumbers}`);
       setSrc(src || "");
       
     })();

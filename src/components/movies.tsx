@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 function Movies({random}:{random:string}) {
   useEffect(() => {
     (async () => {
-      const movies = await axios.get(`http://localhost:3001/movies/${random}`);
+      const movies = await axios.get(`https://york-marketing-movie.vercel.app/movies/${random}`);
       console.log(movies);
     })();
   }, []);
