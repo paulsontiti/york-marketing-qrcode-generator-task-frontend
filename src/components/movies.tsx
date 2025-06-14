@@ -4,13 +4,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MovieComponent from "./movie";
 
-export type MovieType ={
+ type MovieType ={
   title:string,
-  imgSrc:string
+  images:string[],
+  id:string
 }
 
 function Movies({random}:{random:string}) {
-  const [movies,setMovies] = useState<any[]>([]);
+  const [movies,setMovies] = useState<MovieType[]>([]);
 
 
   useEffect(() => {

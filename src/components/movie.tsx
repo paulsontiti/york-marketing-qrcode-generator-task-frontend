@@ -1,8 +1,7 @@
 
 import React from 'react'
-import { MovieType } from './movies'
 
-function MovieComponent({imgSrc,title}:MovieType) {
+function MovieComponent({imgSrc,title}:{title:string,imgSrc:string}) {
   return (
     <div>
        <img src={imgSrc} alt={title} style={{
