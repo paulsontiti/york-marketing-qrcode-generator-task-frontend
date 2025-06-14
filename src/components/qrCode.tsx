@@ -32,13 +32,13 @@ const generateTenRandomUnigueNumbers = (count: number): number[] => {
 
 export default function QRCodeComponent() {
   const [src, setSrc] = useState("");
-  const [randomNumbers, setRandomNumbers] = useState("");
+  
+  const nums = generateTenRandomUnigueNumbers(16);
+  
+  const [randomNumbers, setRandomNumbers] = useState(nums.join(","));
 
   useEffect(() => {
     (async () => {
-      const nums = generateTenRandomUnigueNumbers(16);
-      setRandomNumbers(nums.join());
-
       const src = await generateQR(
         `https://york-marketing-qrcode-generator.vercel.app/movies/${randomNumbers}`
       );
