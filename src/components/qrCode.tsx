@@ -11,40 +11,44 @@ const generateQR = async (url: string) => {
   }
 };
 
-const generateTenRandomUnigueNumbers = (count:number):number[]=>{
-  const numbers:number[] = [];
+const generateTenRandomUnigueNumbers = (count: number): number[] => {
+  const numbers: number[] = [];
 
-  while(true){
+  while (true) {
     const num = Math.floor(Math.random() * count) + 1;
 
     const index = numbers.indexOf(num);
-   
-   if(index < 0){
-    numbers.push(num);
-   }
 
-   if(numbers.length === 10){
-    break;
-   }
+    if (index < 0) {
+      numbers.push(num);
+    }
+
+    if (numbers.length === 10) {
+      break;
+    }
   }
-return numbers;
-}
+  return numbers;
+};
 
 export default function QRCodeComponent() {
   const [src, setSrc] = useState("");
-  const [randomNumbers,setRandomNumbers] = useState("");
+  const [randomNumbers, setRandomNumbers] = useState("");
 
   useEffect(() => {
     (async () => {
-      const src = await generateQR(`https://york-marketing-qrcode-generator.vercel.app/movies/${randomNumbers}`);
+      const nums = generateTenRandomUnigueNumbers(16);
+      setRandomNumbers(nums.join());
+
+      const src = await generateQR(
+        `https://york-marketing-qrcode-generator.vercel.app/movies/${randomNumbers}`
+      );
       setSrc(src || "");
-      
     })();
 
-    const interval = setInterval(()=>{
+    const interval = setInterval(() => {
       const nums = generateTenRandomUnigueNumbers(16);
-        setRandomNumbers(nums.join())
-    },10000);
+      setRandomNumbers(nums.join());
+    }, 10000);
 
     // Cleanup logic (unmount)
     return () => {
@@ -52,17 +56,17 @@ export default function QRCodeComponent() {
     };
   }, [randomNumbers]);
 
-
   return (
     <div className="w-96 h-96 absolute">
-       {src &&  
+      {src && (
         <Image
           className="dark:invert"
           src={src || ""}
           alt="Next.js logo"
           fill
           priority
-        />}
+        />
+      )}
     </div>
   );
 }

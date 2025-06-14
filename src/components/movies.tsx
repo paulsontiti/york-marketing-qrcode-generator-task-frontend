@@ -21,6 +21,8 @@ function Movies({random}:{random:string}) {
     setMovies(res.data);
     })();
   }, []);
+
+  if(movies.length === 0) return <div className="flex items-center justify-center">No movie found</div>
   return <div className="grid grid-cols-4 gap-4">
     {
       movies.map((movie)=>(
