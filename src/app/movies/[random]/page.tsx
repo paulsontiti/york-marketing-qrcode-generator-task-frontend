@@ -9,7 +9,9 @@ import React from 'react'
       // asynchronous access of `params.id`.
   const { random } = await params
   return (
-   <Movies random={random}/>
+   <div className='flex items-center justify-center m-10'>
+    <Movies random={random}/>
+   </div>
   )
 }
 
