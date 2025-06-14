@@ -15,7 +15,7 @@ const generateTenRandomUnigueNumbers = (count: number): number[] => {
   const numbers: number[] = [];
 
   while (true) {
-    const num = Math.floor(Math.random() * count) + 1;
+    const num = Math.floor(Math.random() * count - 1) + 1;
 
     const index = numbers.indexOf(num);
 
