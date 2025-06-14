@@ -25,7 +25,7 @@ function Movies({random}:{random:string}) {
   if(movies === undefined) return <div className="flex items-center justify-center">loading.....</div>
 
   if(movies.length === 0) return <div className="flex items-center justify-center">No movie found</div>
-  return <div className="grid grid-cols-4 gap-4">
+  return <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-col-4 gap-4">
     {
       movies.map((movie)=>(
         <MovieComponent title={movie.title} imgSrc={movie.images[3] || movie.images[1] || movie.images[2]} key={movie.id}/>
