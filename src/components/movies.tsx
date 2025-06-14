@@ -16,7 +16,7 @@ function Movies({random}:{random:string}) {
 
   useEffect(() => {
     (async () => {
-      // const res = await axios.get(`http://localhost:3001/movies/${random}`);
+      //const res = await axios.get(`http://localhost:3001/movies/${random}`);
       const res = await axios.get(`https://york-marketing-movie.vercel.app/movies/${random}`);
     setMovies(res.data);
     })();
